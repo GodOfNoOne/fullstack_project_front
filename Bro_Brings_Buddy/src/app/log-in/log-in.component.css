@@ -1,3 +1,6 @@
+h2 {
+  color: #585858;
+}
 .control-row {
   align-items: flex-end;
 }
@@ -7,13 +10,13 @@
   font-size: 1rem;
   border-radius: 4px;
   border: none;
-  background-color: #147b73;
-  color: #d9e2f1;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #585858;
   cursor: pointer;
 }
 .login-button:hover,
 .login-button:focus {
-  background-color: #319890;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .form-footer {
@@ -27,7 +30,7 @@
 
 .register-text {
   margin: 0;
-  color: #ccc6c6;
+  color: #585858;
   font-size: 0.95rem;
 }
 

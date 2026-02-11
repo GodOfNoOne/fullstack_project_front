@@ -1,8 +1,13 @@
 <div class="back-container">
-  <button class="back-button" (click)="onLogOut()"><span class="arrow">⟵</span> Log Out</button>
+  <div class="nav-buttons"></div>
+  <button class="nav-button left" (click)="onLogOut()"><span class="arrow">⟵</span> Log Out</button>
 </div>
 
-<div class="content">
-  <p class="subtitle">Waddup my</p>
-  <h1><br />Buddy</h1>
-</div>
+<app-home-header [username]="username()" [role]="role()" />
+@if (role() === 'bro') {
+  <app-home-bro-view [username]="username()" [role]="role()" />
+} @else if (role() === 'member') {
+  <app-home-member-view [username]="username()" [role]="role()" />
+} @else {
+  <app-home-admin-view [username]="username()" [role]="role()" />
+}

@@ -1,7 +1,9 @@
 <div class="back-container">
-  <button class="back-button" routerLink="/welcome">
-    <span class="arrow">⟵</span> Back to Welcome Page
-  </button>
+  <div class="nav-buttons">
+    <button class="nav-button left" routerLink="/welcome">
+      <span class="arrow">⟵</span> Back to Welcome Page
+    </button>
+  </div>
 </div>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -16,7 +18,7 @@
     <div class="control">
       <label for="password"
         >Password
-        <span class="info-icon" title="Password requirements"
+        <span class="info-icon"
           >ⓘ
           <span class="tooltip">
             Password requirements:

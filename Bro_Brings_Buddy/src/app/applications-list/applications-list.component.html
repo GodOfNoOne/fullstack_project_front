@@ -1,0 +1,14 @@
+<div class="applications-container">
+  <h1>Your Submitted Applications</h1>
+  @if (applicationsList() && applicationsList().length > 0) {
+    <ul>
+      @for (app of applicationsList(); track app.appId) {
+        <li>
+          <app-application [application]="app" [canDeleteApp]="canDeleteApp()" />
+        </li>
+      }
+    </ul>
+  } @else {
+    <p class="no-applications">You don't have any applications</p>
+  }
+</div>

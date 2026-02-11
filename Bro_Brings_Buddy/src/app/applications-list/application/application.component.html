@@ -1,0 +1,25 @@
+@if (application()) {
+  <div class="application-card">
+    <h2>Application #{{ application()!.appId }}</h2>
+
+    <p><strong>Type:</strong> {{ application()!.appType }} approval</p>
+    <p><strong>From:</strong> {{ application()!.fromUser }}</p>
+
+    <div class="votes">
+      <strong>Admin Votes:</strong>
+      <ul>
+        @for (vote of application()!.adminVotes; track vote) {
+          <li>{{ vote }}</li>
+        }
+      </ul>
+    </div>
+
+    @if (canDeleteApp()) {
+      <button class="delete-btn">🗑️ delete application</button>
+    }
+  </div>
+} @else {
+  <div class="application-card">
+    <h2>You got no applications</h2>
+  </div>
+}

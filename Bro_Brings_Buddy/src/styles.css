@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: "Lato", serif;
+  font-family: 'Lato', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(#6cb7dc, #1c52bd);
@@ -8,32 +8,49 @@ body {
   min-height: 100vh;
 }
 
-.back-button {
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-button {
   padding: 0.75rem 1.5rem;
   font-size: 1.1rem;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   border: none;
-  background-color: #147b73;
-  color: #d9e2f1;
+  background: rgba(255, 255, 255, 0.6);
+  color: #181818;
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.back-button:hover,
-.back-button:focus {
-  background-color: #319890;
+.nav-button:hover,
+.nav-button:focus {
+  background: rgba(255, 255, 255, 0.5);
 }
 
-.back-button .arrow {
+.nav-button .arrow {
   display: inline-block;
-  transform: translateX(0);
-  transition: transform 180ms ease, opacity 180ms ease;
-  will-change: transform;
-  margin-right: 0.5rem;
+  transition: transform 180ms ease;
 }
 
-.back-button:hover .arrow,
-.back-button:focus .arrow {
+.nav-button.left:hover .arrow,
+.nav-button.left:focus .arrow {
   transform: translateX(-6px);
+}
+
+.nav-button.right:hover .arrow,
+.nav-button.right:focus .arrow {
+  transform: translateX(6px);
+}
+
+.back-container {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
 }
 
 form {
@@ -41,8 +58,8 @@ form {
   max-width: 40rem;
   margin: 3rem auto;
   padding: 2rem;
-  background: linear-gradient(180deg, #253c3c, #1d4949);
-  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4));
+  border-radius: 1rem;
   box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.5);
 }
 .form-actions {
@@ -64,7 +81,7 @@ fieldset {
   display: block;
   font-size: 0.8rem;
   margin-bottom: 0.2rem;
-  color: #9bafaf;
+  color: #585858;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -75,15 +92,16 @@ fieldset {
   max-width: 15rem;
   padding: 0.5rem;
   font-size: 1rem;
-  border-radius: 4px;
-  border: 1px solid #758a8a;
-  background-color: #869999;
+  border-radius: 0.25rem;
+  border: 1px solid #585858;
+  background-color: rgba(255, 255, 255, 0.4);
   color: #142020;
 }
 .control-row {
   margin: 0.5rem 0;
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-end;
   justify-content: flex-start;
   gap: 0.5rem;
 }
@@ -107,15 +125,9 @@ fieldset {
   margin: 0;
 }
 
-.back-container {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
-
 .register-text {
-  margin-top: 12px;
-  font-size: 13px;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
   text-align: right;
   color: #ccc6c6;
 }
@@ -123,7 +135,7 @@ fieldset {
 .register-text a {
   color: #1976d2;
   text-decoration: none;
-  margin-left: 4px;
+  margin-left: 0.25rem;
 }
 
 .register-text a:hover {
@@ -139,4 +151,10 @@ fieldset {
 input.ng-invalid.ng-touched.ng-dirty {
   background-color: #fbdcd6;
   border-color: #f84e2c;
+}
+
+.to-minigame-container {
+  position: absolute;
+  bottom: 4.5rem;
+  left: 1rem;
 }

@@ -1,34 +1,30 @@
+h2 {
+  color: #585858;
+}
 .button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   border: none;
-  background-color: #147b73;
-  color: #d9e2f1;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #585858;
   cursor: pointer;
 }
 
 .button:hover,
 .button:focus {
-  background-color: #319890;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .button-flat {
   background-color: transparent;
-  color: #9cbaba;
+  color: #585858;
 }
 
 .button-flat:hover,
 .button-flat:focus {
   background-color: transparent;
-  color: #869999;
-}
-
-.login-text {
-  margin-top: 1.25rem;
-  font-size: 0.95rem;
-  color: #ccc6c6;
-  text-align: left;
+  color: #828282;
 }
 
 .login-text a {
@@ -51,9 +47,9 @@
 }
 
 .login-text {
-  margin: 0; /* reset margin since it's now inline with actions */
+  margin: 0;
   font-size: 0.95rem;
-  color: #ccc6c6;
+  color: #585858;
 }
 
 @media (max-width: 560px) {
@@ -71,7 +67,7 @@
   display: inline-block;
   margin-left: 0.5rem;
   font-size: 1.1rem;
-  color: #319890;
+  color: rgba(255, 255, 255, 0.6);
   cursor: help;
   font-weight: bold;
 }
@@ -82,17 +78,17 @@
   bottom: 125%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #1d4949;
-  color: #d9e2f1;
+  background-color: #ffffff;
+  color: #585858;
   text-align: left;
-  border-radius: 6px;
+  border-radius: 0.5rem;
   padding: 0.75rem;
   z-index: 1000;
   white-space: nowrap;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   font-size: 0.85rem;
   font-weight: normal;
-  border: 1px solid #319890;
+  border: 0.1rem solid #585858;
 }
 
 .info-icon .tooltip ul {
