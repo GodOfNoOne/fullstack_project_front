@@ -24,8 +24,15 @@ export class ApplicationService {
       appId: 3,
       appType: 'Member',
       fromUser: 'MyFriend',
-      forUser: 'NewMember',
-      adminVotes: [],
+      forUser: 'GodOfNoOne',
+      adminVotes: ['admin3', 'admin1', 'admin7'],
+    },
+    {
+      appId: 4,
+      appType: 'Admin',
+      fromUser: 'admin1',
+      forUser: 'BetterNewMember',
+      adminVotes: ['admin2', 'admin5'],
     },
   ])
   // private applicationList = signal<ApplicationFrom[]>([])

@@ -36,3 +36,47 @@
   list-style-type: disc;
   color: #444;
 }
+
+.delete-button {
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #c00a0a;
+}
+
+.delete-button:hover {
+  background-color: #d90c0c;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.approve-button {
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #429908;
+}
+
+.approve-button:hover {
+  background-color: #4db10b;
+}
+
+.disapprove-button {
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #c00a0a;
+}
+
+.disapprove-button:hover {
+  background-color: #d90c0c;
+}

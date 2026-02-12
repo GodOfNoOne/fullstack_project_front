@@ -1,4 +1,4 @@
-body {
+html {
   margin: 0;
   font-family: 'Lato', serif;
   -webkit-font-smoothing: antialiased;
@@ -6,11 +6,6 @@ body {
   background: linear-gradient(#6cb7dc, #1c52bd);
   color: #d9e2f1;
   min-height: 100vh;
-}
-
-.nav-buttons {
-  display: flex;
-  gap: 1rem;
 }
 
 .nav-button {
@@ -62,6 +57,7 @@ form {
   border-radius: 1rem;
   box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.5);
 }
+
 .form-actions {
   display: flex;
   justify-content: flex-end;
@@ -125,23 +121,6 @@ fieldset {
   margin: 0;
 }
 
-.register-text {
-  margin-top: 0.75rem;
-  font-size: 0.75rem;
-  text-align: right;
-  color: #ccc6c6;
-}
-
-.register-text a {
-  color: #1976d2;
-  text-decoration: none;
-  margin-left: 0.25rem;
-}
-
-.register-text a:hover {
-  text-decoration: underline;
-}
-
 [formgroupname].ng-invalid.ng-touched.ng-dirty label,
 .control:has(.ng-invalid.ng-touched.ng-dirty) label {
   color: #f98b75;
@@ -154,7 +133,13 @@ input.ng-invalid.ng-touched.ng-dirty {
 }
 
 .to-minigame-container {
-  position: absolute;
+  position: fixed;
   bottom: 4.5rem;
   left: 1rem;
+}
+
+.to-admin-container {
+  position: fixed;
+  bottom: 4.5rem;
+  right: 1rem;
 }

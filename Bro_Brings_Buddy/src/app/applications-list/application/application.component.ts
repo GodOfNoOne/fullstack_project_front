@@ -10,4 +10,5 @@ import { ApplicationFrom } from '../../models/application-form.model'
 export class ApplicationComponent {
   application = input<ApplicationFrom>()
   canDeleteApp = input.required<boolean>()
+  canVote = input.required<boolean>()
 }

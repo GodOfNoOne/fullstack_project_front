@@ -1,6 +1,6 @@
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
-import { RouterLink } from '@angular/router'
+import { Router, RouterLink } from '@angular/router'
 
 @Component({
   selector: 'app-log-in',
@@ -9,6 +9,7 @@ import { RouterLink } from '@angular/router'
   styleUrl: './log-in.component.css',
 })
 export class LogInComponent {
+  private router = inject(Router)
   form = new FormGroup({
     username: new FormControl('', {
       validators: [Validators.required],
@@ -33,5 +34,8 @@ export class LogInComponent {
     const enteredEmail = this.form.value.username
     const enteredPassword = this.form.value.password
     console.log(enteredEmail, enteredPassword, this.form.status)
+    if (this.form.status === 'VALID') {
+      this.router.navigate(['/home'])
+    }
   }
 }

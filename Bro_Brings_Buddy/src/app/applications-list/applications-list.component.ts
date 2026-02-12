@@ -3,6 +3,7 @@ import { ApplicationFrom } from '../models/application-form.model'
 import { ApplicationComponent } from './application/application.component'
 import { ApplicationService } from './application.service'
 import { Role } from '../models/role.model'
+import { Page } from '../models/page.model'
 
 @Component({
   selector: 'app-applications-list',
@@ -13,6 +14,7 @@ import { Role } from '../models/role.model'
 export class ApplicationsListComponent {
   username = input<string>()
   role = input<Role>()
+  pageType = input<Page>()
 
   canDeleteApp = computed(() => {
     if (this.role() === 'bro') {
@@ -21,12 +23,20 @@ export class ApplicationsListComponent {
     return true
   })
 
+  canVote = computed(() => {
+    if (this.pageType() === 'Admin') {
+      return true
+    }
+    return false
+  })
+
   private applicationService = inject(ApplicationService)
   applicationsList = computed(() => {
-    if (this.role() === 'member') {
-      console.log(
-        this.applicationService.getApplications().filter((app) => app.fromUser === this.username()),
-      )
+    if (this.pageType() === 'Admin') {
+      return this.applicationService
+        .getApplications()
+        .filter((app) => app.fromUser !== this.username())
+    } else if (this.role() === 'member') {
       return this.applicationService
         .getApplications()
         .filter((app) => app.fromUser === this.username() && app.appType === 'Member')

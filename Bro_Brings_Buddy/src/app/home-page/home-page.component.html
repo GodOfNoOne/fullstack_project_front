@@ -3,7 +3,7 @@
   <button class="nav-button left" (click)="onLogOut()"><span class="arrow">⟵</span> Log Out</button>
 </div>
 
-<app-home-header [username]="username()" [role]="role()" />
+<app-header [username]="username()" [role]="role()" [pageType]="pageType()" />
 @if (role() === 'bro') {
   <app-home-bro-view [username]="username()" [role]="role()" />
 } @else if (role() === 'member') {

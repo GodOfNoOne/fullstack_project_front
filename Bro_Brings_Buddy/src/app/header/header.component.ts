@@ -1,18 +1,19 @@
 import { Component, input } from '@angular/core'
 import { AsyncPipe, DatePipe } from '@angular/common'
 import { interval, map, Observable, startWith } from 'rxjs'
-import { required } from '@angular/forms/signals'
-import { Role } from '../../models/role.model'
+import { Role } from '../models/role.model'
+import { Page } from '../models/page.model'
 
 @Component({
-  selector: 'app-home-header',
+  selector: 'app-header',
   imports: [DatePipe, AsyncPipe],
-  templateUrl: './home-header.component.html',
-  styleUrl: './home-header.component.css',
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.css',
 })
-export class HomeHeaderComponent {
+export class HeaderComponent {
   username = input<string>()
   role = input<Role>()
+  pageType = input.required<Page>()
 
   readonly dateTime$: Observable<Date> = interval(1000).pipe(
     startWith(0),

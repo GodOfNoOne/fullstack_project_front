@@ -1,0 +1,10 @@
+<div class="back-container">
+  <div class="nav-buttons"></div>
+  <button class="nav-button left" routerLink="/home">
+    <span class="arrow">⟵</span> Return to Home Page
+  </button>
+</div>
+
+<app-header [pageType]="pageType()" />
+
+<app-applications-list [username]="username()" [pageType]="pageType()" />

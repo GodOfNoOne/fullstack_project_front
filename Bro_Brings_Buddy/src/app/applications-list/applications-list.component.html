@@ -1,10 +1,18 @@
 <div class="applications-container">
-  <h1>Your Submitted Applications</h1>
+  @if (!canVote()) {
+    <h1>Your Submitted Applications</h1>
+  } @else {
+    <h1>All Submitted Applications (except yours)</h1>
+  }
   @if (applicationsList() && applicationsList().length > 0) {
     <ul>
       @for (app of applicationsList(); track app.appId) {
         <li>
-          <app-application [application]="app" [canDeleteApp]="canDeleteApp()" />
+          <app-application
+            [application]="app"
+            [canDeleteApp]="canDeleteApp()"
+            [canVote]="canVote()"
+          />
         </li>
       }
     </ul>
