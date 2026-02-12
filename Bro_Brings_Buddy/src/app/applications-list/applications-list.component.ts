@@ -1,9 +1,10 @@
-import { Component, computed, inject, input, signal } from '@angular/core'
-import { ApplicationFrom } from '../models/application-form.model'
+import { Component, computed, inject, input } from '@angular/core'
 import { ApplicationComponent } from './application/application.component'
 import { ApplicationService } from './application.service'
 import { Role } from '../models/role.model'
 import { Page } from '../models/page.model'
+import { MatDialog } from '@angular/material/dialog'
+import { NewApplicationComponent } from './new-application/new-application.component'
 
 @Component({
   selector: 'app-applications-list',
@@ -49,4 +50,17 @@ export class ApplicationsListComponent {
       .getApplications()
       .filter((app) => app.forUser === this.username() && app.appType === 'Member')
   })
+
+  private dialog = inject(MatDialog)
+
+  openNewAppDialog() {
+    this.dialog.open(NewApplicationComponent, {
+      width: '500px',
+      disableClose: true,
+      panelClass: 'custom-dialog',
+      data: {
+        pageType: this.pageType(),
+      },
+    })
+  }
 }

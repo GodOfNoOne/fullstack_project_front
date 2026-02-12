@@ -18,7 +18,7 @@ export class HomePageComponent {
 
   //When I make backend I'll make a service that will get the username and role
   username = signal('GodOfNoOne')
-  role = signal<Role>('admin')
+  role = signal<Role>('member')
 
   pageType = signal<Page>('Home')
   onLogOut() {

@@ -143,3 +143,59 @@ input.ng-invalid.ng-touched.ng-dirty {
   bottom: 4.5rem;
   right: 1rem;
 }
+
+.custom-dialog .mat-mdc-dialog-surface {
+  background-color: #d9e2f1;
+  color: #585858;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.close-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #ccc;
+  color: #333;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close-button:hover {
+  background-color: #bbb;
+}
+
+.submit-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+.mat-mdc-text-field-wrapper {
+  background-color: white !important;
+}
+
+.mat-mdc-autocomplete-panel {
+  background-color: #ffffff !important;
+  border-radius: 12px;
+}
+
+.mat-mdc-option {
+  background-color: white !important;
+}
+
+.mat-mdc-option:hover {
+  background-color: #f0f0f0 !important;
+}
+
+.mat-mdc-option.mdc-list-item--selected {
+  background-color: #e3f2fd !important;
+}

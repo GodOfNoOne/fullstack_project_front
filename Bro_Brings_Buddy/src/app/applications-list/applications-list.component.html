@@ -16,6 +16,17 @@
         </li>
       }
     </ul>
+    @if (!canVote()) {
+      <div class="add-app">
+        <p>Want to add another member to our group?</p>
+        <button (click)="openNewAppDialog()">Add Member Application+</button>
+      </div>
+    } @else {
+      <div class="add-app">
+        <p>Want to add another admin to our group?</p>
+        <button (click)="openNewAppDialog()">Add Admin Application+</button>
+      </div>
+    }
   } @else {
     <p class="no-applications">You don't have any applications</p>
   }

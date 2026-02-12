@@ -6,6 +6,40 @@ h1 {
   text-underline-position: below;
 }
 
+.add-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  margin-top: 4rem;
+  gap: 1.5rem;
+}
+
+.add-app p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #181818;
+  margin: 0;
+}
+
+.add-app button {
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  background-color: #4f46e5;
+  color: white;
+}
+
+.add-app button:hover {
+  background-color: #4338ca;
+}
+
 .applications-container {
   max-height: 31.25rem;
   overflow-y: auto;
