@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { Router, RouterLink } from '@angular/router'
+import { UserManageService } from '../user-manage.service'
 
 @Component({
   selector: 'app-log-in',
@@ -10,6 +11,7 @@ import { Router, RouterLink } from '@angular/router'
 })
 export class LogInComponent {
   private router = inject(Router)
+  private userService = inject(UserManageService)
   form = new FormGroup({
     username: new FormControl('', {
       validators: [Validators.required],
@@ -30,12 +32,19 @@ export class LogInComponent {
   }
 
   onSubmit() {
-    console.log(this.form)
-    const enteredEmail = this.form.value.username
-    const enteredPassword = this.form.value.password
-    console.log(enteredEmail, enteredPassword, this.form.status)
-    if (this.form.status === 'VALID') {
-      this.router.navigate(['/home'])
-    }
+    if (this.form.invalid) return
+
+    const username = this.form.value.username!
+    const password = this.form.value.password!
+
+    this.userService.login(username, password).subscribe({
+      next: (user) => {
+        this.userService.setUser(user)
+        this.router.navigate(['/home'])
+      },
+      error: () => {
+        alert('Invalid username or password')
+      },
+    })
   }
 }

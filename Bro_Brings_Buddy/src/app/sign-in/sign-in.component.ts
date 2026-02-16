@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms'
 import { Router, RouterLink } from '@angular/router'
+import { UserManageService } from '../user-manage.service'
 
 function equalVals(controlName1: string, controlName2: string) {
   return (control: AbstractControl) => {
@@ -44,6 +45,7 @@ function validPassword(control: AbstractControl) {
 })
 export class SignInComponent {
   private router = inject(Router)
+  private userService = inject(UserManageService)
   form = new FormGroup({
     username: new FormControl('', {
       validators: [Validators.required],
@@ -64,14 +66,21 @@ export class SignInComponent {
   })
 
   onSubmit() {
-    console.log(this.form)
-    const username = this.form.controls.username.value
-    const password = this.form.controls.passwords.controls.password.value
-    const cPassword = this.form.controls.passwords.controls.confirmPassword.value
-    console.log(username, password, cPassword, this.form.status)
-    if (this.form.status === 'VALID') {
-      this.router.navigate(['/home'])
-    }
+    if (this.form.invalid) return
+
+    const username = this.form.controls.username.value!
+    const password = this.form.controls.passwords.controls.password.value!
+
+    this.userService.createUser(username, password).subscribe({
+      next: (user) => {
+        this.userService.setUser(user)
+        this.router.navigate(['/home'])
+      },
+      error: (err) => {
+        console.error(err)
+        alert('Signup failed: ' + (err.error?.message || 'Unknown error'))
+      },
+    })
   }
   onReset() {
     this.form.reset()

@@ -8,6 +8,8 @@
   <app-home-bro-view [username]="username()" [role]="role()" />
 } @else if (role() === 'member') {
   <app-home-member-view [username]="username()" [role]="role()" />
-} @else {
+} @else if (role() === 'admin') {
   <app-home-admin-view [username]="username()" [role]="role()" />
+} @else {
+  <p>no username or role got</p>
 }

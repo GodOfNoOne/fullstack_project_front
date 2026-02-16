@@ -5,8 +5,8 @@
 
 .game-box {
   margin: 2rem auto;
-  width: 25rem;
-  height: 15rem;
+  width: 100rem;
+  height: 30rem;
   display: flex;
   align-items: center;
   justify-content: center;
