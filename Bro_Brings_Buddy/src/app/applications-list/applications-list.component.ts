@@ -118,8 +118,8 @@ export class ApplicationsListComponent {
           next: () => {
             this.reloadApplications()
           },
-          error: () => {
-            alert('Failed to create application')
+          error: (err) => {
+            alert(err.error.message)
           },
         })
     })

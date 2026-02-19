@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core'
+import { Component, inject, OnInit, signal } from '@angular/core'
 import { Router } from '@angular/router'
 import { Role } from '../models/role.model'
 import { HomeBroViewComponent } from './home-bro-view/home-bro-view.component'
@@ -14,10 +14,11 @@ import { UserManageService } from '../user-manage.service'
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit {
   private router = inject(Router)
   private userService = inject(UserManageService)
-  constructor() {
+
+  ngOnInit(): void {
     this.userService.restoreUser()
   }
 

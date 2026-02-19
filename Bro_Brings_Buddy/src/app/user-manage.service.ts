@@ -35,19 +35,29 @@ export class UserManageService {
   setUser(user: User) {
     console.log(user)
     this._currentUser.set(user)
-    localStorage.setItem('user', JSON.stringify(user))
+    localStorage.setItem('username', user.username)
   }
 
   logout() {
     this._currentUser.set(undefined)
-    localStorage.removeItem('user')
+    localStorage.removeItem('username')
     this.router.navigate([''])
   }
 
   restoreUser() {
-    const stored = localStorage.getItem('user')
-    if (stored) {
-      this._currentUser.set(JSON.parse(stored))
-    }
+    const username = localStorage.getItem('username')
+
+    if (!username) return
+
+    this.httpClient.get<User>(this.baseUrl, { params: { username } }).subscribe({
+      next: (user) => {
+        if (user) {
+          this._currentUser.set(user)
+        }
+      },
+      error: () => {
+        this.logout()
+      },
+    })
   }
 }
