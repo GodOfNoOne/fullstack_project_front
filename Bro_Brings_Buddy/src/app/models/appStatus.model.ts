@@ -1,1 +1,1 @@
-export type AppStatus = 'SENT' | 'VOTING' | 'DONE'
+export type AppStatus = 'SENT' | 'DELETED' | 'DONE'

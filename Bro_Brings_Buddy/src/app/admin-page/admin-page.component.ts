@@ -1,9 +1,10 @@
-import { Component, signal } from '@angular/core'
+import { Component, inject, signal } from '@angular/core'
 import { Page } from '../models/page.model'
 import { HeaderComponent } from '../header/header.component'
 import { RouterLink } from '@angular/router'
 import { Role } from '../models/role.model'
 import { ApplicationsListComponent } from '../applications-list/applications-list.component'
+import { UserManageService } from '../user-manage.service'
 
 @Component({
   selector: 'app-admin-page',
@@ -12,8 +13,12 @@ import { ApplicationsListComponent } from '../applications-list/applications-lis
   styleUrl: './admin-page.component.css',
 })
 export class AdminPageComponent {
-  //When I make backend I'll make a service that will get the username and roll
-  username = signal('GodOfNoOne')
-  role = signal<Role>('admin')
+  private userService = inject(UserManageService)
+  constructor() {
+    this.userService.restoreUser()
+  }
+
+  username = this.userService.username
+  role = this.userService.role
   pageType = signal<Page>('Admin')
 }

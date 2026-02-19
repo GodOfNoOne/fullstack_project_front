@@ -1,10 +1,10 @@
 import { Component, inject, input, output } from '@angular/core'
 import { ApplicationFrom } from '../../models/application-form.model'
-import { ApplicationService } from '../application.service'
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-application',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './application.component.html',
   styleUrl: './application.component.css',
 })
@@ -21,5 +21,15 @@ export class ApplicationComponent {
     if (wantsToDelete) {
       this.deleteApp.emit(this.application()!.appId)
     }
+  }
+
+  vote = output<number>()
+  unvote = output<number>()
+
+  onVote() {
+    this.vote.emit(this.application()!.appId)
+  }
+  onUnvote() {
+    this.unvote.emit(this.application()!.appId)
   }
 }
