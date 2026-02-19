@@ -1,0 +1,35 @@
+@if (application()) {
+  <div class="application-card">
+    <h2>Application #{{ application()!.appId }}</h2>
+
+    <p>
+      <strong>Created At:</strong>
+      {{ application()!.timeOfSubmition | date: 'EEEE, dd MMM yyyy  HH:mm:ss' }}
+    </p>
+    <p><strong>Type:</strong> {{ application()!.appType }} approval</p>
+    <p><strong>From:</strong> {{ application()!.fromUser }}</p>
+    <p><strong>To:</strong> {{ application()!.forUser }}</p>
+
+    <div class="votes">
+      <strong>Admin Votes:</strong>
+      <ul>
+        @for (vote of application()!.adminVotes; track vote) {
+          <li>{{ vote }}</li>
+        }
+      </ul>
+    </div>
+
+    @if (canDeleteApp() && !canVote()) {
+      <button class="delete-button" (click)="onDelete()">🗑️ delete application</button>
+    } @else if (canVote()) {
+      <div class="admin-actions">
+        <button class="approve-button" (click)="onVote()">👆 Vote</button>
+        <button class="disapprove-button" (click)="onUnvote()">👇 Unvote</button>
+      </div>
+    }
+  </div>
+} @else {
+  <div class="application-card">
+    <h2>You got no applications</h2>
+  </div>
+}

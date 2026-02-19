@@ -1,0 +1,43 @@
+<div class="applications-container">
+  @if (!canVote()) {
+    <h1>Your Submitted Applications</h1>
+  } @else {
+    <h1>All Submitted Applications (except yours)</h1>
+  }
+  @if (loading()) {
+    <p class="no-applications">Checking for your applications</p>
+  } @else {
+    @if (applicationsList() && applicationsList().length > 0) {
+      <ul>
+        @for (app of applicationsList(); track app.appId) {
+          <li>
+            <app-application
+              [application]="app"
+              [canDeleteApp]="canDeleteApp()"
+              [canVote]="canVote()"
+              (deleteApp)="onDeleteApp($event)"
+              (vote)="onVote($event)"
+              (unvote)="onUnvote($event)"
+            />
+          </li>
+        }
+      </ul>
+    } @else {
+      <p class="no-applications">You don't have any applications</p>
+    }
+
+    @if (canAddApp()) {
+      @if (!canVote()) {
+        <div class="add-app">
+          <p>Want to add another member to our group?</p>
+          <button (click)="openNewAppDialog()">Add Member Application+</button>
+        </div>
+      } @else {
+        <div class="add-app">
+          <p>Want to add another admin to our group?</p>
+          <button (click)="openNewAppDialog()">Add Admin Application+</button>
+        </div>
+      }
+    }
+  }
+</div>

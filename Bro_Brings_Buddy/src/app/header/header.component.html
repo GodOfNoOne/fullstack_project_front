@@ -1,0 +1,13 @@
+<div class="content">
+  <p class="subtitle">Welcome to the {{ pageType() }} page</p>
+  @if (username()) {
+    <h1><br />{{ username() }}</h1>
+  }
+  @if (role()) {
+    <p class="subtitle">Your current role is: {{ role() }}</p>
+  }
+</div>
+
+<div class="clock">
+  {{ dateTime$ | async | date: 'EEEE, dd MMM yyyy · HH:mm:ss' }}
+</div>
