@@ -1,0 +1,9 @@
+<div class="to-admin-container">
+  <app-nav-buttons [label]="'To Admin Page'" [direction]="'right'" (clicked)="goToAdmin()" />
+</div>
+
+<div class="to-minigame-container">
+  <app-nav-buttons [label]="'To Minigame'" [direction]="'left'" (clicked)="goToMinigame()" />
+</div>
+
+<app-applications-list [username]="username()" [role]="role()" />

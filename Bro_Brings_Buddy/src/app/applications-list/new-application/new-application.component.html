@@ -1,0 +1,28 @@
+<h2>New {{ appType }} Application</h2>
+
+<div mat-dialog-content>
+  <p class="label">Application for user:</p>
+
+  <mat-form-field appearance="outline">
+    <input
+      type="text"
+      matInput
+      [value]="search()"
+      (input)="onInput($event)"
+      [matAutocomplete]="auto"
+    />
+
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelect($event.option.value)">
+      @for (option of filteredUsers(); track option) {
+        <mat-option [value]="option">
+          {{ option }}
+        </mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions align="end" class="actions-wrapper">
+  <button mat-button (click)="close()" class="close-button">Close</button>
+  <button mat-raised-button color="primary" (click)="submit()" class="submit-button">Submit</button>
+</div>

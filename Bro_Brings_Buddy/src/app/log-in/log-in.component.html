@@ -1,0 +1,41 @@
+<div class="back-container">
+  <app-nav-buttons
+    [label]="'Back to Welcome Page'"
+    [direction]="'left'"
+    (clicked)="goToWelcome()"
+  />
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h2>Login</h2>
+
+  <div>
+    <div class="control no-margin">
+      <label for="username">Username</label>
+      <input id="username" type="username" formControlName="username" />
+    </div>
+
+    <div class="control no-margin">
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" />
+    </div>
+
+    <div class="form-footer">
+      <p class="register-text">
+        Don’t have a user yet? <a (click)="goToRegister()">Click here to register</a>
+      </p>
+
+      <p class="form-actions">
+        <button class="login-button">Login</button>
+      </p>
+    </div>
+  </div>
+
+  @if (usernameIsInvalid) {
+    <p class="control-error">Please enter a valid username</p>
+  }
+
+  @if (passwordIsInvalid) {
+    <p class="control-error">Please enter a valid password</p>
+  }
+</form>

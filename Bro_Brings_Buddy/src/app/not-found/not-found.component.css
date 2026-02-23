@@ -1,0 +1,19 @@
+.not-found {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: #000;
+  text-align: center;
+}
+
+.not-found h2 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.not-found p {
+  font-size: 1.5rem;
+}

@@ -1,0 +1,14 @@
+<div class="back-container">
+  <app-nav-buttons [label]="'Log Out'" [direction]="'left'" (clicked)="onLogOut()" />
+</div>
+
+<app-header [username]="username()" [role]="role()" [pageType]="pageType()" />
+@if (role() === 'bro') {
+  <app-home-bro-view [username]="username()" [role]="role()" />
+} @else if (role() === 'member') {
+  <app-home-member-view [username]="username()" [role]="role()" />
+} @else if (role() === 'admin') {
+  <app-home-admin-view [username]="username()" [role]="role()" />
+} @else {
+  <p>no username or role got</p>
+}

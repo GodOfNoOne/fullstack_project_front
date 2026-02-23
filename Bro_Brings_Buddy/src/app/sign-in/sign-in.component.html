@@ -1,0 +1,62 @@
+<div class="back-container">
+  <app-nav-buttons
+    [label]="'Back to Welcome Page'"
+    [direction]="'left'"
+    (clicked)="goToWelcome()"
+  />
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h2>Sign In</h2>
+
+  <div class="control">
+    <label for="username">Username</label>
+    <input id="username" type="username" name="username" formControlName="username" />
+  </div>
+
+  <div class="control-row">
+    <div class="control">
+      <label for="password"
+        >Password
+        <span class="info-icon"
+          >ⓘ
+          <span class="tooltip">
+            Password requirements:
+            <ul>
+              <li>At least 6 characters</li>
+              <li>Include uppercase letters</li>
+              <li>Include lowercase letters</li>
+              <li>Include numbers</li>
+              <li>Include at least 1 specail character (!,@,#,$,% etc.)</li>
+            </ul>
+          </span>
+        </span>
+      </label>
+      <input
+        id="password"
+        type="password"
+        name="password"
+        [formControl]="form.controls.passwords.controls.password"
+      />
+    </div>
+
+    <div class="control">
+      <label for="confirm-password">Confirm Password</label>
+      <input
+        id="confirm-password"
+        type="password"
+        name="confirm-password"
+        [formControl]="form.controls.passwords.controls.confirmPassword"
+      />
+    </div>
+  </div>
+
+  <div class="form-footer">
+    <p class="login-text">Have an account? <a (click)="goToLogIn()">Click here to log in</a></p>
+
+    <p class="form-actions">
+      <button type="button" class="button button-flat" (click)="onReset()">Reset</button>
+      <button type="submit" class="button">Sign up</button>
+    </p>
+  </div>
+</form>

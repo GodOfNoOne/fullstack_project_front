@@ -1,0 +1,7 @@
+<div class="back-container">
+  <app-nav-buttons [label]="'Back to Home Page'" [direction]="'left'" (clicked)="goToHome()" />
+</div>
+
+<app-header [username]="username()" [pageType]="pageType()" />
+
+<app-applications-list [username]="username()" [role]="role()" [pageType]="pageType()" />

@@ -1,0 +1,35 @@
+<div class="back-container">
+  <app-nav-buttons [label]="'Back to Home Page'" [direction]="'left'" (clicked)="goToHome()" />
+</div>
+
+<app-header [pageType]="pageType()" />
+
+<div class="game-container">
+  @if (state() === 'idle') {
+    <div class="game-box start" (click)="startGame()">Click to Play</div>
+  }
+
+  @if (state() === 'waiting') {
+    <div class="game-box waiting" (click)="handleClick()">Wait for green...</div>
+  }
+
+  @if (state() === 'ready') {
+    <div class="game-box ready" (click)="handleClick()">CLICK NOW!</div>
+  }
+
+  @if (state() === 'clicked') {
+    <div class="game-box start" (click)="startGame()">
+      Your reaction time: {{ reactionTime() }} ms
+      <br />
+      Click to Play Again
+    </div>
+  }
+
+  @if (state() === 'tooSoon') {
+    <div class="game-box start" (click)="startGame()">
+      Too Soon! 😅
+      <br />
+      Click to Play Again
+    </div>
+  }
+</div>

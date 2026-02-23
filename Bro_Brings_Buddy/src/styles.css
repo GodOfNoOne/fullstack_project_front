@@ -1,1 +1,193 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  margin: 0;
+  font-family: 'Lato', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(#6cb7dc, #1c52bd);
+  color: #d9e2f1;
+  min-height: 100vh;
+}
+
+.nav-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: rgba(255, 255, 255, 0.6);
+  color: #181818;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-button:hover,
+.nav-button:focus {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.nav-button .arrow {
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+
+.nav-button.left:hover .arrow,
+.nav-button.left:focus .arrow {
+  transform: translateX(-0.4rem);
+}
+
+.nav-button.right:hover .arrow,
+.nav-button.right:focus .arrow {
+  transform: translateX(0.4rem);
+}
+
+.back-container {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+}
+
+form {
+  width: 90%;
+  max-width: 40rem;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4));
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem 0.05rem rgba(0, 0, 0, 0.5);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.control,
+fieldset {
+  margin: 0.5rem 0;
+}
+
+.control.no-margin {
+  margin-bottom: 0;
+}
+
+.control label {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+  color: #585858;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.control input {
+  display: block;
+  width: 100%;
+  max-width: 15rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: 0.05rem solid #585858;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #142020;
+}
+.control-row {
+  margin: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.control-row .control {
+  flex: 1;
+}
+
+.control-error {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: #ffca99;
+  height: 0.5rem;
+  padding: 0.25rem 0 0 0;
+  height: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.control-error p {
+  margin: 0;
+}
+
+[formgroupname].ng-invalid.ng-touched.ng-dirty label,
+.control:has(.ng-invalid.ng-touched.ng-dirty) label {
+  color: #f98b75;
+}
+
+[formgroupname].ng-invalid.ng-touched.ng-dirty input,
+input.ng-invalid.ng-touched.ng-dirty {
+  background-color: #fbdcd6;
+  border-color: #f84e2c;
+}
+
+.to-minigame-container {
+  position: fixed;
+  bottom: 4.5rem;
+  left: 1rem;
+}
+
+.to-admin-container {
+  position: fixed;
+  bottom: 4.5rem;
+  right: 1rem;
+}
+
+.custom-dialog .mat-mdc-dialog-surface {
+  background-color: #d9e2f1;
+  color: #585858;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.close-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #ccc;
+  color: #333;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close-button:hover {
+  background-color: #bbb;
+}
+
+.submit-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+.mat-mdc-text-field-wrapper {
+  background-color: white !important;
+}
+
+.mat-mdc-autocomplete-panel {
+  background-color: #ffffff !important;
+  border-radius: 0.75rem;
+}
+
+.mat-mdc-option:hover {
+  background-color: #f0f0f0 !important;
+}

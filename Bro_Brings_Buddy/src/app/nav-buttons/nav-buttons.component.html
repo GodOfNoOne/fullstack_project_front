@@ -1,0 +1,16 @@
+<button
+  class="nav-button"
+  [class.left]="direction() === 'left'"
+  [class.right]="direction() === 'right'"
+  (click)="onClick()"
+>
+  @if (direction() === 'left') {
+    <span class="arrow">⟵</span>
+  }
+
+  {{ label() }}
+
+  @if (direction() === 'right') {
+    <span class="arrow">⟶</span>
+  }
+</button>
